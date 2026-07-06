@@ -1,4 +1,4 @@
-document.documentElement.classList.add("js");
+﻿document.documentElement.classList.add("js");
 
 const header = document.querySelector("[data-header]");
 const navToggle = document.querySelector(".nav-toggle");
@@ -67,7 +67,7 @@ if ("IntersectionObserver" in window) {
   revealItems.forEach((item) => item.classList.add("is-visible"));
 }
 
-/* FAQ — accordéon accessible */
+/* FAQ - accordéon accessible */
 document.querySelectorAll(".faq-trigger").forEach((trigger) => {
   const panel = document.querySelector(`#${trigger.getAttribute("aria-controls")}`);
   if (!panel) return;
@@ -90,7 +90,7 @@ document.querySelectorAll(".faq-trigger").forEach((trigger) => {
     panel.classList.add("is-open");
     panel.hidden = false;
     const icon = trigger.querySelector(".faq-icon");
-    if (icon) icon.textContent = "−";
+    if (icon) icon.textContent = "-";
     trigger.closest(".faq-item")?.classList.add("is-open");
   };
 
@@ -279,7 +279,7 @@ document.querySelectorAll("[data-testimonial-carousel]").forEach((carousel) => {
   const dots = slides.map((_, index) => {
     const button = document.createElement("button");
     button.type = "button";
-    button.setAttribute("aria-label", `Afficher le témoignage ${index + 1}`);
+    button.setAttribute("aria-label", `Afficher le tÃ©moignage ${index + 1}`);
     button.addEventListener("click", () => {
       setActiveSlide(index);
       restartAutoplay();
@@ -349,6 +349,31 @@ document.querySelectorAll("[data-testimonial-carousel]").forEach((carousel) => {
 const contactForm = document.querySelector(".contact-form");
 const contactEmail = document.body.dataset.contactEmail;
 
+if (contactForm) {
+  const params = new URLSearchParams(window.location.search);
+  const requestedNeed = params.get("besoin");
+  const needSelect = contactForm.querySelector("select[name='need']");
+
+  const contactNeedLabels = {
+    diagnostic: "nous savons que l'ia est utilisee, mais pas vraiment comment",
+    conference: "nous voulons ouvrir le sujet avec une direction ou des equipes",
+  };
+
+  if (requestedNeed && needSelect && contactNeedLabels[requestedNeed]) {
+    const matchingOption = [...needSelect.options].find((option) =>
+      option.textContent
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .toLowerCase()
+        .includes(contactNeedLabels[requestedNeed])
+    );
+
+    if (matchingOption) {
+      needSelect.value = matchingOption.value;
+    }
+  }
+}
+
 if (contactForm && contactEmail && contactForm.getAttribute("action") === "#") {
   contactForm.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -357,24 +382,21 @@ if (contactForm && contactEmail && contactForm.getAttribute("action") === "#") {
     const name = String(formData.get("name") ?? "").trim();
     const organization = String(formData.get("organization") ?? "").trim();
     const email = String(formData.get("email") ?? "").trim();
-    const phone = String(formData.get("phone") ?? "").trim();
     const need = String(formData.get("need") ?? "").trim();
-    const situations = formData.getAll("situation").map((value) => String(value).trim()).filter(Boolean);
     const message = String(formData.get("message") ?? "").trim();
 
     const subject = "Demande d'échange de cadrage";
     const body = [
-      `Nom : ${name || "-"}`,
+      `Nom et prénom : ${name || "-"}`,
       `Organisation : ${organization || "-"}`,
-      `Adresse professionnelle : ${email || "-"}`,
-      `Téléphone : ${phone || "-"}`,
-      `Besoin : ${need || "-"}`,
-      `Votre situation : ${situations.length ? situations.join(" | ") : "-"}`,
+      `E-mail : ${email || "-"}`,
+      `Votre point de départ : ${need || "-"}`,
       "",
-      "Précisions :",
+      "Quelques mots sur votre contexte :",
       message || "-"
     ].join("\n");
 
     window.location.href = `mailto:${contactEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   });
 }
+
