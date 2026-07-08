@@ -3869,6 +3869,12 @@ p {
   hyphens: none;
 }
 
+/* Sauts de ligne maîtrisés dans les titres */
+.cartography-section-kicker h2 > span,
+.conference-final-copy h2 > span {
+  display: block;
+}
+
 .cartography-product-section h3 {
   color: var(--blue);
   font-size: clamp(0.98rem, 1.18vw, 1.12rem);
