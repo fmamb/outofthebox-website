@@ -4097,7 +4097,10 @@ p {
 
 /* Sauts de ligne maitrises dans les titres */
 .cartography-product-section h2 > span,
-.cartography-final-cta h2 > span {
+.cartography-final-cta h2 > span,
+.conference-section-heading h2 > span,
+.conference-final-copy h2 > span,
+.conference-title > span {
   display: inline-block;
 }
 
@@ -4267,12 +4270,12 @@ p {
 }
 
 .conference-title {
-  max-width: 18ch;
+  max-width: 100%;
   color: var(--blue);
   font-size: clamp(2.55rem, 4.35vw, 4.9rem);
   font-style: italic;
   line-height: 0.9;
-  text-wrap: balance;
+  text-wrap: pretty;
 }
 
 .conference-lead {
@@ -4335,11 +4338,11 @@ p {
 
 .conference-section-heading h2,
 .conference-final-copy h2 {
-  max-width: 24ch;
+  max-width: 100%;
   color: var(--blue);
   font-size: clamp(1.6rem, 2.6vw, 2.55rem);
   line-height: 0.96;
-  text-wrap: balance;
+  text-wrap: pretty;
 }
 
 .conference-section-heading p:not(.section-label),
@@ -4449,7 +4452,7 @@ p {
   line-height: 0.98;
   text-align: center;
   text-transform: uppercase;
-  text-wrap: balance;
+  text-wrap: pretty;
 }
 
 .conference-question-wall p:nth-child(2) {
@@ -4505,7 +4508,6 @@ p {
   }
 
   .conference-title {
-    max-width: 20ch;
     font-size: clamp(2.35rem, 7vw, 4.4rem);
   }
 
