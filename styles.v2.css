@@ -3794,7 +3794,7 @@ p {
 }
 
 .cartography-hero-lead {
-  max-width: 58ch;
+  max-width: none;
   color: var(--blue);
   font-size: clamp(1.04rem, 1.25vw, 1.22rem);
   font-weight: 800;
@@ -3883,7 +3883,7 @@ p {
 .cartography-product-section p,
 .cartography-product-section li,
 .cartography-final-cta p {
-  max-width: 68ch;
+  max-width: none;
   color: var(--blue);
   font-size: clamp(0.94rem, 0.98vw, 1.02rem);
   line-height: 1.45;
@@ -4138,14 +4138,14 @@ p {
 }
 
 .cartography-process-step p {
-  max-width: 52ch;
+  max-width: none;
   color: var(--blue);
   font-size: clamp(0.88rem, 0.92vw, 0.96rem);
   line-height: 1.42;
 }
 
 .cartography-process-note {
-  max-width: 48ch;
+  max-width: none;
   color: var(--gray);
   font-size: clamp(0.82rem, 0.85vw, 0.9rem);
   line-height: 1.4;
@@ -4193,7 +4193,7 @@ p {
 
 /* Note sur les expertises complementaires */
 .cartography-limits-note {
-  max-width: 72ch;
+  max-width: none;
   color: var(--gray);
   font-size: clamp(0.87rem, 0.9vw, 0.94rem);
   line-height: 1.45;
@@ -4205,7 +4205,7 @@ p {
 
 /* Note de contact secondaire */
 .cartography-contact-note {
-  max-width: 56ch;
+  max-width: none;
   color: var(--gray);
   font-size: clamp(0.85rem, 0.88vw, 0.92rem);
   line-height: 1.4;
@@ -4283,7 +4283,7 @@ p {
 }
 
 .conference-lead {
-  max-width: 62ch;
+  max-width: none;
   color: var(--blue);
   font-size: clamp(1.06rem, 1.25vw, 1.24rem);
   font-weight: 800;
@@ -4354,7 +4354,7 @@ p {
 .conference-final-copy p:not(.section-label),
 .conference-conclusion,
 .conference-footnote {
-  max-width: 70ch;
+  max-width: none;
   color: var(--blue);
   font-size: clamp(0.96rem, 1vw, 1.06rem);
   line-height: 1.48;
