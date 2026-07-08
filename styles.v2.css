@@ -1424,11 +1424,6 @@ p {
   font-weight: 800;
 }
 
-#offres .product-title span {
-  display: block;
-  white-space: nowrap;
-}
-
 /* Zone principale deux colonnes */
 .product-card__main {
   display: grid;
@@ -4096,15 +4091,6 @@ p {
 .cartography-process-section {
   background: var(--white);
   box-shadow: var(--shadow);
-}
-
-/* Sauts de ligne maitrises dans les titres */
-.cartography-product-section h2 > span,
-.cartography-final-cta h2 > span,
-.conference-section-heading h2 > span,
-.conference-final-copy h2 > span,
-.conference-title > span {
-  display: inline-block;
 }
 
 .cartography-process-grid {
