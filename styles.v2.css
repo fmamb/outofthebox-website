@@ -3782,13 +3782,13 @@ p {
   font-size: clamp(2.35rem, 3vw, 3.1rem);
   font-style: italic;
   line-height: 0.92;
-  text-wrap: pretty;
+  text-wrap: normal;
   overflow-wrap: normal;
 }
 
 .cartography-title span {
   display: block;
-  text-wrap: pretty;
+  text-wrap: normal;
 }
 
 .cartography-hero-lead {
@@ -3868,7 +3868,7 @@ p {
   color: var(--blue);
   font-size: clamp(1.55rem, 2.45vw, 2.28rem);
   line-height: 0.98;
-  text-wrap: pretty;
+  text-wrap: normal;
 }
 
 .cartography-product-section h3 {
@@ -4051,7 +4051,7 @@ p {
   }
 
   .cartography-title {
-    max-width: 28ch;
+    max-width: 100%;
     font-size: clamp(2.25rem, 5.35vw, 3.15rem);
   }
 }
@@ -4275,7 +4275,7 @@ p {
   font-size: clamp(2.55rem, 4.35vw, 4.9rem);
   font-style: italic;
   line-height: 0.9;
-  text-wrap: pretty;
+  text-wrap: normal;
 }
 
 .conference-lead {
@@ -4342,7 +4342,7 @@ p {
   color: var(--blue);
   font-size: clamp(1.6rem, 2.6vw, 2.55rem);
   line-height: 0.96;
-  text-wrap: pretty;
+  text-wrap: normal;
 }
 
 .conference-section-heading p:not(.section-label),
@@ -4452,7 +4452,7 @@ p {
   line-height: 0.98;
   text-align: center;
   text-transform: uppercase;
-  text-wrap: pretty;
+  text-wrap: normal;
 }
 
 .conference-question-wall p:nth-child(2) {
