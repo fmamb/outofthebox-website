@@ -3777,18 +3777,18 @@ p {
 }
 
 .cartography-title {
-  max-width: 28ch;
+  max-width: 100%;
   color: var(--blue);
   font-size: clamp(2.35rem, 3vw, 3.1rem);
   font-style: italic;
   line-height: 0.92;
-  text-wrap: balance;
+  text-wrap: pretty;
   overflow-wrap: normal;
 }
 
 .cartography-title span {
   display: block;
-  text-wrap: balance;
+  text-wrap: pretty;
 }
 
 .cartography-hero-lead {
@@ -3864,11 +3864,11 @@ p {
 
 .cartography-product-section h2,
 .cartography-final-cta h2 {
-  max-width: 30ch;
+  max-width: 100%;
   color: var(--blue);
   font-size: clamp(1.55rem, 2.45vw, 2.28rem);
   line-height: 0.98;
-  text-wrap: balance;
+  text-wrap: pretty;
 }
 
 .cartography-product-section h3 {
@@ -4082,6 +4082,158 @@ p {
 
   .cartography-title span + span::before {
     content: " ";
+  }
+}
+
+/* ============================
+   CARTOGRAPHIE - NOUVELLES SECTIONS
+   ============================ */
+
+/* Section deroulement */
+.cartography-process-section {
+  background: var(--white);
+  box-shadow: var(--shadow);
+}
+
+/* Sauts de ligne maitrises dans les titres */
+.cartography-product-section h2 > span,
+.cartography-final-cta h2 > span {
+  display: inline-block;
+}
+
+.cartography-process-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.cartography-process-step {
+  min-width: 0;
+  padding: 1rem;
+  background: var(--paper-strong);
+  border: 1px solid var(--line);
+  border-top: 5px solid var(--blue);
+}
+
+.cartography-process-num {
+  display: block;
+  color: var(--orange);
+  font-size: 1.6rem;
+  font-weight: 900;
+  line-height: 1;
+  margin-bottom: 0.45rem;
+}
+
+.cartography-process-step h3 {
+  color: var(--blue);
+  font-size: clamp(0.95rem, 1.1vw, 1.08rem);
+  line-height: 1.12;
+  margin-bottom: 0.35rem;
+}
+
+.cartography-process-step p {
+  max-width: 52ch;
+  color: var(--blue);
+  font-size: clamp(0.88rem, 0.92vw, 0.96rem);
+  line-height: 1.42;
+}
+
+.cartography-process-note {
+  max-width: 48ch;
+  color: var(--gray);
+  font-size: clamp(0.82rem, 0.85vw, 0.9rem);
+  line-height: 1.4;
+  margin-top: 0.15rem;
+}
+
+/* Resultats - deux sous-blocs */
+.cartography-result-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.cartography-result-block {
+  padding: 1rem;
+  background: var(--paper-strong);
+  border: 1px solid var(--line);
+}
+
+.cartography-result-block-title {
+  color: var(--blue);
+  font-size: clamp(0.92rem, 1.05vw, 1.02rem);
+  font-weight: 900;
+  margin-bottom: 0.55rem;
+}
+
+.cartography-result-block .cartography-result-list {
+  display: grid;
+  gap: 0.4rem;
+  margin: 0;
+  padding: 0 0 0 1.1rem;
+  list-style: disc;
+}
+
+.cartography-result-block .cartography-result-list li {
+  position: static;
+  padding-left: 0;
+  font-weight: 400;
+}
+
+.cartography-result-block .cartography-result-list li::before {
+  content: none;
+}
+
+/* Note sur les expertises complementaires */
+.cartography-limits-note {
+  max-width: 72ch;
+  color: var(--gray);
+  font-size: clamp(0.87rem, 0.9vw, 0.94rem);
+  line-height: 1.45;
+  margin-top: 0.75rem;
+  padding: 0.75rem 0.85rem;
+  background: var(--paper-strong);
+  border: 1px solid var(--line);
+}
+
+/* Note de contact secondaire */
+.cartography-contact-note {
+  max-width: 56ch;
+  color: var(--gray);
+  font-size: clamp(0.85rem, 0.88vw, 0.92rem);
+  line-height: 1.4;
+  margin-top: 0.3rem;
+}
+
+/* Responsive deroulement */
+@media (max-width: 1024px) {
+  .cartography-process-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .cartography-result-cols {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .cartography-process-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cartography-process-step {
+    border-top-width: 5px;
+  }
+
+  .cartography-result-cols {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .cartography-process-grid {
+    grid-template-columns: 1fr;
   }
 }
 
