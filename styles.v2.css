@@ -246,7 +246,7 @@ p {
 
 .hero-rail {
   position: absolute;
-  left: 0;
+  left: max(0px, calc((100% - var(--max)) / 2 - 42px));
   top: 2.2rem;
   bottom: 2.2rem;
   display: grid;
@@ -1480,6 +1480,22 @@ p {
   object-position: 72% 34%;
 }
 
+/* Les visuels restent un repère, pas la hauteur directrice de chaque carte. */
+@media (min-width: 901px) {
+  .product-card__main {
+    align-items: start;
+  }
+
+  .product-card__media,
+  .product-card__media--art,
+  .product-card--conference .product-card__media {
+    align-self: center;
+    height: clamp(16rem, 21vw, 19rem);
+    min-height: 0;
+    max-height: none;
+  }
+}
+
 .product-card__media-overlay {
   position: absolute;
   inset: 0;
@@ -1784,12 +1800,17 @@ p {
   .product-card__main {
     grid-template-columns: 1fr;
   }
-  .product-card__media {
-    max-height: 220px;
-    padding: 12px;
+  .product-card--conference .product-card__main {
+    grid-template-columns: 1fr;
   }
-  .product-card__media--art {
+  .product-card__media,
+  .product-card__media--art,
+  .product-card--conference .product-card__media {
+    height: auto;
+    min-height: 0;
+    max-height: none;
     padding: 0;
+    aspect-ratio: 16 / 10;
   }
   .product-card__media--viz {
     flex-direction: row;
@@ -1797,27 +1818,14 @@ p {
     padding: 12px;
     max-height: none;
   }
-  .product-card__media img {
-    max-height: 190px;
-    width: auto;
-  }
-  .product-card__media--art img {
-    max-height: none;
-    width: 100%;
-    height: 100%;
-  }
-  .product-card--conference .product-card__media {
-    min-height: auto;
-    max-height: none;
-    padding: 0;
-    aspect-ratio: 16/9;
-  }
+  .product-card__media img,
+  .product-card__media--art img,
   .product-card--conference .product-card__media img {
     max-height: none;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center 34%;
+    object-position: center;
   }
 }
 
@@ -1835,12 +1843,17 @@ p {
   .product-card__main {
     grid-template-columns: 1fr;
   }
-  .product-card__media {
-    max-height: 220px;
-    padding: 12px;
+  .product-card--conference .product-card__main {
+    grid-template-columns: 1fr;
   }
-  .product-card__media--art {
+  .product-card__media,
+  .product-card__media--art,
+  .product-card--conference .product-card__media {
+    height: auto;
+    min-height: 0;
+    max-height: none;
     padding: 0;
+    aspect-ratio: 16 / 10;
   }
   .product-card__media--viz {
     flex-direction: row;
@@ -1848,27 +1861,14 @@ p {
     padding: 12px;
     max-height: none;
   }
-  .product-card__media img {
-    max-height: 180px;
-    width: auto;
-  }
-  .product-card__media--art img {
-    max-height: none;
-    width: 100%;
-    height: 100%;
-  }
-  .product-card--conference .product-card__media {
-    min-height: auto;
-    max-height: none;
-    padding: 0;
-    aspect-ratio: 16/9;
-  }
+  .product-card__media img,
+  .product-card__media--art img,
   .product-card--conference .product-card__media img {
     max-height: none;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center 34%;
+    object-position: center;
   }
   .product-card__content {
     padding: 12px 16px;
@@ -3756,9 +3756,9 @@ p {
 
 .cartography-hero-panel {
   display: grid;
-  grid-template-columns: minmax(0, 1.45fr) minmax(16rem, 0.7fr);
+  grid-template-columns: 1fr;
   gap: clamp(1rem, 3vw, 2.4rem);
-  align-items: center;
+  align-items: start;
   padding: clamp(1.15rem, 2.8vw, 2.2rem);
   background: var(--white);
   border-top: 7px solid var(--orange);
@@ -3782,18 +3782,36 @@ p {
   hyphens: none;
 }
 
-.cartography-title span {
-  display: block;
-  text-wrap: normal;
-  hyphens: none;
-}
-
 .cartography-hero-lead {
   max-width: none;
   color: var(--blue);
   font-size: clamp(1.04rem, 1.25vw, 1.22rem);
   font-weight: 800;
   line-height: 1.38;
+}
+
+.cartography-hero-visual {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(16rem, 0.7fr);
+  gap: clamp(0.8rem, 1.5vw, 1.15rem);
+  align-items: stretch;
+  min-width: 0;
+}
+
+.cartography-hero-illustration {
+  display: flex;
+  margin: 0;
+  overflow: hidden;
+  background: var(--paper-strong);
+  border: 1px solid var(--line);
+}
+
+.cartography-hero-illustration img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: clamp(15rem, 25vw, 22rem);
+  object-fit: cover;
 }
 
 .cartography-map {
@@ -3856,7 +3874,7 @@ p {
 .cartography-section-kicker {
   display: grid;
   gap: 0.75rem;
-  max-width: 62rem;
+  max-width: none;
 }
 
 .cartography-product-section h2,
@@ -3867,12 +3885,6 @@ p {
   line-height: 0.98;
   text-wrap: normal;
   hyphens: none;
-}
-
-/* Sauts de ligne maîtrisés dans les titres */
-.cartography-section-kicker h2 > span,
-.conference-final-copy h2 > span {
-  display: block;
 }
 
 .cartography-product-section h3 {
@@ -3953,8 +3965,8 @@ p {
 }
 
 .cartography-result-section {
-  grid-template-columns: minmax(0, 0.85fr) minmax(18rem, 0.7fr);
-  align-items: start;
+  grid-template-columns: 1fr;
+  align-items: stretch;
 }
 
 .cartography-result-main {
@@ -3989,7 +4001,7 @@ p {
 
 .cartography-status-board {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 0.7rem;
   min-width: 0;
 }
@@ -4024,6 +4036,10 @@ p {
   text-transform: uppercase;
 }
 
+.cartography-limits-note {
+  grid-column: 1 / -1;
+}
+
 .cartography-final-cta {
   grid-column: 1 / -1;
   display: grid;
@@ -4049,9 +4065,13 @@ p {
 }
 
 @media (max-width: 1024px) {
-  .cartography-hero-panel,
+  .cartography-hero-visual,
   .cartography-result-section {
     grid-template-columns: 1fr;
+  }
+
+  .cartography-hero-illustration img {
+    height: clamp(15rem, 45vw, 24rem);
   }
 
   .cartography-title {
@@ -4080,13 +4100,6 @@ p {
     font-size: clamp(2rem, 10vw, 2.85rem);
   }
 
-  .cartography-title span {
-    display: inline;
-  }
-
-  .cartography-title span + span::before {
-    content: " ";
-  }
 }
 
 /* ============================
@@ -4545,6 +4558,35 @@ p {
   }
 }
 
+/* Hovers discrets pour les cellules éditoriales des pages produits */
+@media (hover: hover) and (pointer: fine) {
+  .cartography-three-grid article,
+  .cartography-angle-grid article,
+  .cartography-process-step,
+  .cartography-status-board article,
+  .cartography-map-zone,
+  .conference-triptych article,
+  .conference-sequence-grid article,
+  .conference-question-wall p,
+  .conference-contexts li {
+    transition: transform 220ms var(--ease), box-shadow 220ms var(--ease), border-color 220ms var(--ease);
+  }
+
+  .cartography-three-grid article:hover,
+  .cartography-angle-grid article:hover,
+  .cartography-process-step:hover,
+  .cartography-status-board article:hover,
+  .cartography-map-zone:hover,
+  .conference-triptych article:hover,
+  .conference-sequence-grid article:hover,
+  .conference-question-wall p:hover,
+  .conference-contexts li:hover {
+    transform: translateY(-4px);
+    border-color: var(--orange);
+    box-shadow: 0 10px 22px rgba(36, 46, 103, 0.14);
+  }
+}
+
 /* ============================
    PAGE BATAILLE DE L'IA
    ============================ */
@@ -4603,9 +4645,27 @@ p {
 @media (max-width: 1024px) { .battle-hero-panel, .battle-final { grid-template-columns: 1fr; } .battle-hero-media { min-height: 16rem; } }
 @media (max-width: 768px) { .battle-workshop-layout, .battle-grid, .battle-dark-list, .battle-format-grid { grid-template-columns: 1fr; } .battle-game-cover img { max-height: 16rem; } }
 @media (prefers-reduced-motion: reduce) {
+  .cartography-three-grid article,
+  .cartography-angle-grid article,
+  .cartography-process-step,
+  .cartography-status-board article,
+  .cartography-map-zone,
+  .conference-triptych article,
+  .conference-sequence-grid article,
+  .conference-question-wall p,
+  .conference-contexts li,
   .battle-grid article,
   .battle-dark-list p,
   .battle-format-grid p { transition: none; }
+  .cartography-three-grid article:hover,
+  .cartography-angle-grid article:hover,
+  .cartography-process-step:hover,
+  .cartography-status-board article:hover,
+  .cartography-map-zone:hover,
+  .conference-triptych article:hover,
+  .conference-sequence-grid article:hover,
+  .conference-question-wall p:hover,
+  .conference-contexts li:hover,
   .battle-grid article:hover,
   .battle-dark-list p:hover,
   .battle-format-grid p:hover { transform: none; }
