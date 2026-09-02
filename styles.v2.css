@@ -3117,6 +3117,7 @@ p {
 
 .site-footer {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   gap: 1rem;
@@ -3134,6 +3135,17 @@ p {
 .mention-legale {
   color: rgba(255, 255, 255, 0.82);
   text-align: center;
+}
+
+.site-ai-credit {
+  width: 100%;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.64);
+  font-size: 0.68rem !important;
+  font-weight: 400 !important;
+  line-height: 1.35;
+  text-align: center;
+  text-transform: none !important;
 }
 
 .site-footer a {
