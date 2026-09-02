@@ -1,0 +1,8 @@
+.git/
+.wrangler/
+_pdf_preview/
+*.md
+dev-server.js
+wrangler.jsonc
+.gitignore
+.assetsignore

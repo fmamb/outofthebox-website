@@ -1,5 +1,8 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "outofthebox-website",
-  "pages_build_output_dir": "."
+  "compatibility_date": "2026-09-02",
+  "assets": {
+    "directory": "."
+  }
 }
