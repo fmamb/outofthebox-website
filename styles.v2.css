@@ -2445,7 +2445,7 @@ p {
   align-items: end;
   justify-content: start;
   gap: 0.7rem;
-  min-height: 6rem;
+  min-height: 4.5rem;
   padding-top: 0.2rem;
 }
 
@@ -2501,7 +2501,7 @@ p {
 
 .method-eye {
   display: block;
-  width: clamp(7.25rem, 11.25vw, 9.375rem);
+  width: clamp(5.44rem, 8.44vw, 7.03rem);
   height: auto;
   transform: translateY(-0.15rem);
   filter: drop-shadow(0 6px 18px rgba(0, 0, 0, 0.12));
@@ -2509,14 +2509,14 @@ p {
 
 .method-symbol {
   display: block;
-  width: clamp(5.8rem, 9vw, 7.5rem);
+  width: clamp(4.35rem, 6.75vw, 5.63rem);
   height: auto;
   transform: translateY(-0.15rem);
   filter: drop-shadow(0 6px 18px rgba(0, 0, 0, 0.12));
 }
 
 .method-symbol--question {
-  width: clamp(3.22rem, 5.04vw, 4.2rem);
+  width: clamp(2.42rem, 3.78vw, 3.15rem);
 }
 
 .method-note {
@@ -3176,6 +3176,23 @@ p {
     grid-template-columns: 1fr;
   }
 
+  .about-media {
+    width: min(100%, 30rem);
+    margin-inline: auto;
+  }
+
+  .about-stage {
+    aspect-ratio: 2 / 1;
+    overflow: hidden;
+  }
+
+  .about-stage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 48%;
+  }
+
   .cinema-editorial {
     grid-template-columns: 1fr;
   }
@@ -3282,6 +3299,27 @@ p {
   .section-title-one-line,
   .section-title-split span {
     white-space: normal;
+  }
+
+  #apropos .about-copy h2 span {
+    white-space: normal;
+  }
+
+  .temoignages-grid {
+    grid-template-columns: 1fr;
+    gap: 0.9rem;
+  }
+
+  .temoignages-references {
+    order: 2;
+  }
+
+  .carousel-temoignages {
+    order: 1;
+  }
+
+  .temoignages-logos img {
+    max-width: 26rem;
   }
 
   .nav-toggle {
